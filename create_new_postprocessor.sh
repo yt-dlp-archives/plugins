@@ -9,5 +9,6 @@ fi
 
 mkdir -p "$NAME/yt_dlp_plugins/$TYPE";
 touch "$NAME/yt_dlp_plugins/$TYPE/$NAME.py";
+printf "Put your %s code in '%s/yt_dlp_plugins/%s/%s.py'\n"  "$TYPE" "$NAME" "$TYPE" "$NAME";
 printf "Done.\n";
 exit 0;
