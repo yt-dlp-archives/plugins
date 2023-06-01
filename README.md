@@ -1,5 +1,5 @@
 # YT-DLP Archieve Plugins
-An archieve of all experimental, rejected and/or contriversial yt-dlp Plugin code for educational and example purposes.
+An archieve of all rejected and/or contriversial yt-dlp Plugin code for educational and example purposes.
 
 # Rules
 1. All Plugins must be working.
