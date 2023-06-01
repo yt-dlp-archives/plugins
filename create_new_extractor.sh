@@ -3,7 +3,7 @@ NAME=$1;
 TYPE="extractor";
 
 if [ -z "$NAME" ]; then
-	printf "No plugin name provided.\nUsage: %s <plugin name>\nExample: %s hanime" "$0" "$0";
+	printf "No plugin name provided.\nUsage: %s <plugin name>\nExample: %s hanime\n" "$0" "$0";
     exit 1;
 fi
 
