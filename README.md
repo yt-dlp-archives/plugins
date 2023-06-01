@@ -2,7 +2,8 @@
 An archieve of all experimental, rejected and/or contriversial yt-dlp Plugin code for educational and example purposes.
 
 # project structure
-```txt
+
+```html
 -- <this repo>
     \
     |-- <plugin_name_1>/
@@ -22,3 +23,4 @@ An archieve of all experimental, rejected and/or contriversial yt-dlp Plugin cod
     .   |-- ...
     .
 ```
+This project structure is to abide by the yt-dlp Plugin specifications as of date.
