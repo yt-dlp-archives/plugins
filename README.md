@@ -27,7 +27,7 @@ git clone https://github.com/yt-dlp-archives/plugins.git yt-dl_archive_plugins
 ```
 Run install script:
 ```bash
-./yt-dl_archive_plugins/install_plugin <plugin_name> <install_path>
+./yt-dl_archive_plugins/install_plugin <install_path> <plugin_name_1> <plugin_name_2> ...
 ```
 
 ## Mannual install
