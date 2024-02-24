@@ -1,3 +1,4 @@
+![demo_img](./demo.png)
 # YT-DLP Archieve Plugins
 An archieve of all rejected and/or contriversial yt-dlp Plugin code for educational and example purposes.
 
