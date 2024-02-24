@@ -11,7 +11,8 @@ An archieve of all rejected and/or contriversial yt-dlp Plugin code for educatio
 # How do I install *<plugin_name>* plugin?
 ## Install paths
 According to the official YT-DL Plugin specifications, installing *<plugin_name>* plugin is as simple as putting the *<plugin_name>* folder in any of the following:
-- `${XDG_CONFIG_HOME}/yt-dlp/plugins/` **(recommended on Linux/macOS)**
+- `~/yt-dlp/plugins/` **(recommended on Linux/macOS)**
+- `${XDG_CONFIG_HOME}/yt-dlp/plugins/`
 - `${XDG_CONFIG_HOME}/yt-dlp-plugins/`
 - `${APPDATA}/yt-dlp/plugins/` **(recommended on Windows)**
 - `${APPDATA}/yt-dlp-plugins/`
