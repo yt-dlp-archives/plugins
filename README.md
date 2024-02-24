@@ -49,7 +49,7 @@ cd yt-dl_archive_plugins
     ```bash
     ./create_new_postprocessor.sh <name_of_your_plugin>
     ```
-3. Follow the existructions provided my the scripts.
+3. Follow the existructions provided by the scripts.
 4. Make a pull request to this repository.
 
 
