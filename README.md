@@ -34,6 +34,25 @@ git clone https://github.com/yt-dlp-archives/plugins.git yt-dl_archive_plugins
 3. Open the `pluggables` folder in `yt-dl_archive_plugins`.
 4. Copy the *<plugin_name>* folder into *<install_path>*.
 
+# How do I add a new plugin?
+1. Clone this repo and get into the directory:
+```bash
+git clone https://github.com/yt-dlp-archives/plugins.git yt-dl_archive_plugins
+cd yt-dl_archive_plugins
+```
+2.
+    1. If your plugin has an extractor:
+    ```bash
+    ./create_new_extractor.sh <name_of_your_plugin>
+    ```
+    2. If your plugin has a postprocessor:
+    ```bash
+    ./create_new_postprocessor.sh <name_of_your_plugin>
+    ```
+3. Follow the existructions provided my the scripts.
+4. Make a pull request to this repository.
+
+
 # Project Structure
 ```html
 -- <this repo>
