@@ -3,6 +3,13 @@
 CONFIG_PATH=$1;
 shift;
 
+if [ -z "$CONFIG_PATH" ]; then
+    printf "Invalid <install_path>: %s.\n" "${CONFIG_PATH}";
+    exit 1;
+else
+    printf "Install path set to %s.\n" "${CONFIG_PATH}";
+fi
+
 BASE="https://raw.githubusercontent.com/yt-dlp-archives/plugins/main/pluggables";
 NOT_FOUND=$(curl -s "${BASE}/_this_path_does_not_exist");
 

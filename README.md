@@ -21,13 +21,8 @@ According to the official YT-DL Plugin specifications, installing *<plugin_name>
 The `<install_path>` placeholder in the next two segment is one of these.
 
 ## Automated install
-Clone this repo:
 ```bash
-git clone https://github.com/yt-dlp-archives/plugins.git yt-dl_archive_plugins
-```
-Run install script:
-```bash
-./yt-dl_archive_plugins/install_plugin <install_path> <plugin_name_1> <plugin_name_2> ...
+curl https://raw.githubusercontent.com/yt-dlp-archives/plugins/main/install_plugin | sh <install_path> <plugin_name_1> <plugin_name_2> ...
 ```
 
 ## Mannual install
