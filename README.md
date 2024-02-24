@@ -18,7 +18,7 @@ According to the official YT-DL Plugin specifications, installing *<plugin_name>
 - `~/.yt-dlp/plugins/`
 - `~/yt-dlp-plugins/`
 - `/etc/yt-dlp/plugins/`
-- `/etc/yt-dlp-plugins/`
+- `/etc/yt-dlp-plugins/`\
 The `<install_path>` placeholder in the next two segment is one of these.
 
 ## Automated install
