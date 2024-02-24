@@ -8,8 +8,8 @@ NOT_FOUND=$(curl -s "${BASE}/_this_path_does_not_exist");
 
 for name in "$@"; do
     if [ -e "${CONFIG_PATH}/${name}" ]; then
-        printf "%s already exists at %s\n" "$name" "${CONFIG_PATH}/${name}";
-        exit 1;
+        printf "%s already exists at %s. Ignoring.\n" "$name" "${CONFIG_PATH}/${name}";
+        continue;
     fi
 
     STATUS="a";
