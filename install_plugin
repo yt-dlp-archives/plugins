@@ -3,11 +3,11 @@
 CONFIG_PATH=$1;
 shift;
 
-if [ -z "$CONFIG_PATH" ]; then
-    printf "Invalid <install_path>: %s.\n" "${CONFIG_PATH}";
-    exit 1;
+if [ -d "$CONFIG_PATH" ]; then
+    printf "Install path set to %s\n" "${CONFIG_PATH}";
 else
-    printf "Install path set to %s.\n" "${CONFIG_PATH}";
+    printf "Invalid <install_path>: \"%s\"\n" "${CONFIG_PATH}";
+    exit 1;
 fi
 
 BASE="https://raw.githubusercontent.com/yt-dlp-archives/plugins/main/pluggables";
