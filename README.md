@@ -22,7 +22,7 @@ The `<install_path>` placeholder in the next two segment is one of these.
 
 ## Automated install
 ```bash
-curl https://raw.githubusercontent.com/yt-dlp-archives/plugins/main/install_plugin | sh <install_path> <plugin_name_1> <plugin_name_2> ...
+curl -s https://raw.githubusercontent.com/yt-dlp-archives/plugins/main/install_plugin | sh -s <install_path> <plugin_name_1> <plugin_name_2> ...
 ```
 
 ## Mannual install
