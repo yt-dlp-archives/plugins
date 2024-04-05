@@ -8,6 +8,9 @@ An archieve of all rejected and/or contriversial yt-dlp Plugin code for educatio
 3. No code here should be used for nothing other than educational purposes AND ESPECIALLY NOT FOR PIRACY.
 4. Have fun. 🗿
 
+# List of Plugins
+Look inside [this directory](https://github.com/yt-dlp-archives/plugins/tree/main/pluggables)
+
 # How do I install *<plugin_name>* plugin?
 ## Install paths
 According to the official YT-DL Plugin specifications, installing *<plugin_name>* plugin is as simple as putting the *<plugin_name>* folder in any of the following:
