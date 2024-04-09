@@ -1,6 +1,6 @@
 import random
-from .common import InfoExtractor
-from ..utils import (
+from yt_dlp.extractor.common import InfoExtractor
+from yt_dlp.utils import (
     ExtractorError,
     remove_start,
     UserNotLive,
