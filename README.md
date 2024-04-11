@@ -26,8 +26,9 @@ The `<install_path>` placeholder in the next two segment is one of these.
 
 ## Automated install
 ```bash
-curl -s https://raw.githubusercontent.com/yt-dlp-archives/plugins/main/install_plugin | sh -s <install_path> <plugin_name_1> <plugin_name_2> ...
+curl -s https://a.hman.io/l/ypis | sh -s <install_path> <plugin_name_1> <plugin_name_2> ...
 ```
+> NOTE: htttps://a.hman.io/l is just my link shortner.
 
 ## Mannual install
 1. Clone this repo:
