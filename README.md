@@ -28,7 +28,7 @@ The `<install_path>` placeholder in the next two segment is one of these.
 ```bash
 curl -s https://a.hman.io/l/ypis | sh -s <install_path> <plugin_name_1> <plugin_name_2> ...
 ```
-> NOTE: htttps://a.hman.io/l is just my link shortner.
+> NOTE: https://a.hman.io/l is just my link shortner.
 
 ## Mannual install
 1. Clone this repo:
