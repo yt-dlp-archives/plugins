@@ -1,11 +1,11 @@
 ![demo_img](./demo.png)
 # YT-DLP Archieve Plugins
-An archieve of all rejected and/or contriversial yt-dlp Plugin code for educational and example purposes.
+An archive of all rejected and/or controversial yt-dlp plugin code for educational and example purposes.
 
 # Rules
-1. All Plugins must be working.
-2. No Plugin should contain unnecessary/malicious code.
-3. No code here should be used for nothing other than educational purposes AND ESPECIALLY NOT FOR PIRACY.
+1. All plugins must be working.
+2. No plugin should contain unnecessary/malicious code.
+3. No code here should be used for anything other than educational purposes AND ESPECIALLY NOT FOR PIRACY.
 4. Have fun. 🗿
 
 # List of Plugins
@@ -28,9 +28,9 @@ The `<install_path>` placeholder in the next two segment is one of these.
 ```bash
 curl -s https://a.hman.io/l/ypis | sh -s <install_path> <plugin_name_1> <plugin_name_2> ...
 ```
-> NOTE: https://a.hman.io/l is just my link shortner.
+> NOTE: https://a.hman.io/l is just my link shortener.
 
-## Mannual install
+## Manual install
 1. Clone this repo:
 ```bash
 git clone https://github.com/yt-dlp-archives/plugins.git yt-dl_archive_plugins
@@ -54,7 +54,7 @@ cd yt-dl_archive_plugins
     ```bash
     ./create_new_postprocessor.sh <name_of_your_plugin>
     ```
-3. Follow the existructions provided by the scripts.
+3. Follow the instructions provided by the scripts.
 4. Make a pull request to this repository.
 
 
@@ -85,6 +85,6 @@ cd yt-dl_archive_plugins
         .   |-- ...
         .
 ```
-This project structure is to abide by the yt-dlp Plugin specifications as of date. \
+This project structure is to abide by the yt-dlp plugin specifications as of date. \
 But you don't have to care about that. \
 `create_new_extractor.sh` and `create_new_postprocessor.sh` scripts will build the required directory structure for you.
