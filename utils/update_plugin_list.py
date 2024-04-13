@@ -1,7 +1,7 @@
 import sys
 
 if sys.version_info <= (3, 4):
-    print("your python version is too old")
+    print("FATAL: your python version is too old")
     exit(1)
 
 from pathlib import Path
@@ -15,7 +15,7 @@ plgin_list = []
 for pname in os.listdir(plgin_path):
     ptypes = os.path.join(os.path.join(plgin_path, pname), "yt_dlp_plugins")
     for ptype in os.listdir(ptypes):
-        if os.path.isfile(os.path.join(os.path.join(ptypes, ptype), f"{pname}.py")):
+        if os.path.isfile(os.path.normpath(os.path.join(os.path.join(ptypes, ptype), f"{pname}.py"))):
             print(f"adding pluggin [{pname}] of type [{ptype}]")
             plgin_list.append({"plugin": pname, "type": ptype})
 
