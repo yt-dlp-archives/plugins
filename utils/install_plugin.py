@@ -24,11 +24,12 @@ for plgin in plugin_list_json["list"]:
         if pname == plg_nm:
             print(f"install candidate [{pname}] found of type [{ptype}]")
             worked_flag = 1
-            plugin_file_path = os.path.join(plugins_path, f"{pname}/yt_dlp_plugins/{ptype}/{pname}.py")
-            plugin_file = urllib.request.urlopen(f"{BASE_PATH}/pluggables/{pname}/yt_dlp_plugins/{ptype}/{pname}.py").read()
+            plugin_rel_path = f"{pname}/yt_dlp_plugins/{ptype}/{pname}.py"
+            plugin_file_path = os.path.join(plugins_path, plugin_rel_path)
+            plugin_file_data = urllib.request.urlopen(f"{BASE_PATH}/pluggables/{plugin_rel_path}").read()
             os.makedirs(os.path.dirname(plugin_file_path), exist_ok=True)
             with open(plugin_file_path, f"wb") as new_plugin:
-                new_plugin.write(plugin_file)
+                new_plugin.write(plugin_file_data)
                 new_plugin.close()
 
 if worked_flag == 0:
