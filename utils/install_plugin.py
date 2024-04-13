@@ -17,12 +17,14 @@ plugin_list_json = json.loads(urllib.request.urlopen(f"{BASE_PATH}/pluggin_list.
 
 plugins_path = os.path.join(os.getcwd(), "_ignored")
 
-for plgin in plugin_list_json["list"]:
-    pname = plgin["plugin"]
-    ptype = plgin["type"]
-    for plg_nm in plg_nms:
+print("\n")
+for plg_nm in plg_nms:
+    installed = 0
+    for plgin in plugin_list_json["list"]:
+        pname = plgin["plugin"]
+        ptype = plgin["type"]
         if pname == plg_nm:
-            print(f"install candidate [{pname}] found of type [{ptype}]")
+            print(f"[    FOUND] install candidate [{pname}] of type [{ptype}] found")
             worked_flag = 1
             plugin_rel_path = f"{pname}/yt_dlp_plugins/{ptype}/{pname}.py"
             plugin_file_path = os.path.join(plugins_path, plugin_rel_path)
@@ -30,10 +32,10 @@ for plgin in plugin_list_json["list"]:
             os.makedirs(os.path.dirname(plugin_file_path), exist_ok=True)
             with open(plugin_file_path, f"wb") as new_plugin:
                 new_plugin.write(plugin_file_data)
+                installed = 1
                 new_plugin.close()
+            print(f"[INSTALLED] install candidate [{pname}] of type [{ptype}] installed")
+    if installed == 0:
+        print(f"[NOT_FOUND] install candidate [{plg_nm}] not found at registry")
 
-if worked_flag == 0:
-    print(f"no installation candidate for plugin of name: \"{plg_nm}\"")
-    exit(1)
-else:
-    print("done")
+print("\ndone. bye o/")
