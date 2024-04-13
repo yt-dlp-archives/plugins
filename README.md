@@ -96,4 +96,4 @@ cd yt-dl_archive_plugins
 ```
 This project structure is to abide by the yt-dlp plugin specifications as of date. \
 But you don't have to care about that. \
-`create_new_extractor.sh` and `create_new_postprocessor.sh` scripts will build the required directory structure for you.
+`utils/create_new_extractor.py` and `utils/create_new_postprocessor.py` scripts will build the required directory structure for you.
