@@ -1,0 +1,56 @@
+{
+    "list": [
+        {
+            "plugin": "ohentai",
+            "type": "extractor"
+        },
+        {
+            "plugin": "agegatebypass",
+            "type": "extractor"
+        },
+        {
+            "plugin": "jutsu",
+            "type": "extractor"
+        },
+        {
+            "plugin": "pstream",
+            "type": "extractor"
+        },
+        {
+            "plugin": "bunkr",
+            "type": "extractor"
+        },
+        {
+            "plugin": "voe",
+            "type": "extractor"
+        },
+        {
+            "plugin": "megacartoons",
+            "type": "extractor"
+        },
+        {
+            "plugin": "streamtape",
+            "type": "extractor"
+        },
+        {
+            "plugin": "hanime",
+            "type": "extractor"
+        },
+        {
+            "plugin": "pomftv",
+            "type": "extractor"
+        },
+        {
+            "plugin": "muchohentai",
+            "type": "extractor"
+        },
+        {
+            "plugin": "coverapi",
+            "type": "extractor"
+        },
+        {
+            "plugin": "camhub",
+            "type": "extractor"
+        }
+    ]
+}
