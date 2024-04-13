@@ -11,7 +11,7 @@ An archive of all rejected and/or controversial yt-dlp plugin code for education
 # List of Plugins
 Look inside [this directory](https://github.com/yt-dlp-archives/plugins/tree/main/pluggables)
 
-# How do I install *<plugin_name>* plugin?
+# How do I install a plugin from here?
 ## Automated install
 ```bash
 python -c "import urllib.request as r;exec(r.urlopen('https://a.hman.io/l/yi').read())"
