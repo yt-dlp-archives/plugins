@@ -12,7 +12,16 @@ An archive of all rejected and/or controversial yt-dlp plugin code for education
 Look inside [this directory](https://github.com/yt-dlp-archives/plugins/tree/main/pluggables)
 
 # How do I install *<plugin_name>* plugin?
-## Install paths
+## Automated install
+```bash
+python -c "import urllib.request as r;exec(r.urlopen('https://a.hman.io/l/yi').read())"
+```
+It will interactively ask you for needed info.  
+> NOTE: You should read https://a.hman.io/l/yi script to make sure i arent anything sus.  
+https://a.hman.io/l is my link shortner.
+
+## Manual install
+### Install paths
 According to the official YT-DL Plugin specifications, installing *<plugin_name>* plugin is as simple as putting the *<plugin_name>* folder in any of the following:
 - `${XDG_CONFIG_HOME}/yt-dlp/plugins/` **(recommended on Linux/macOS)**
 - `${XDG_CONFIG_HOME}/yt-dlp-plugins/`
@@ -22,15 +31,7 @@ According to the official YT-DL Plugin specifications, installing *<plugin_name>
 - `~/yt-dlp-plugins/`
 - `/etc/yt-dlp/plugins/`
 - `/etc/yt-dlp-plugins/`\
-The `<install_path>` placeholder in the next two segment is one of these.
-
-## Automated install
-```bash
-curl -s https://a.hman.io/l/ypis | sh -s <install_path> <plugin_name_1> <plugin_name_2> ...
-```
-> NOTE: https://a.hman.io/l is just my link shortener.
-
-## Manual install
+The `<install_path>` placeholder is one of these.
 1. Clone this repo:
 ```bash
 git clone https://github.com/yt-dlp-archives/plugins.git yt-dl_archive_plugins
