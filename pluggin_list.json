@@ -17,6 +17,14 @@
             "type": "extractor"
         },
         {
+            "plugin": "test",
+            "type": "postprocessor"
+        },
+        {
+            "plugin": "test",
+            "type": "extractor"
+        },
+        {
             "plugin": "bunkr",
             "type": "extractor"
         },
