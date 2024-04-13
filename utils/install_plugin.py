@@ -12,7 +12,7 @@ import re
 BASE_PATH = "https://raw.githubusercontent.com/yt-dlp-archives/plugins/main"
 
 print("YTDLP ARCHIEVES PLUGINS SEARCH+INSTALLATION TOOL")
-plg_nms = re.split(" +", input("plugins to install: "))
+plg_nms = re.split(" +", input("plugins to install (saparate by spaces): "))
 plugin_list_json = json.loads(urllib.request.urlopen(f"{BASE_PATH}/pluggin_list.json").read())
 
 plugins_path = os.path.join(os.getcwd(), "_ignored")
