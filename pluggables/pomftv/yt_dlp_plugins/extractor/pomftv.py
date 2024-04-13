@@ -49,6 +49,7 @@ class PomfTVLiveIE(InfoExtractor):
                 raise UserNotLive(video_id=channel_id)
 
         webpage = self._download_webpage(url, channel_id)
+        vhash = self._search_regex(r'window.players\["_([0-9a-z]+)"]', webpage, 'vhash')
 
         subdomain = _load_balance()
 
@@ -64,9 +65,9 @@ class PomfTVLiveIE(InfoExtractor):
                                  str_or_none(stream_data.get('streambanner'))),
             'description': unescapeHTML(str_or_none(stream_data.get('streamdesc'))),
             'channel_follower_count': int_or_none(stream_data.get('followers')),
-            'formats': [{'url': f'https://{subdomain}.pomf.tv/hls-live/{channel_id}_hd720/index.m3u8',
+            'formats': [{'url': f'https://{subdomain}.pomf.tv/hls-live/{vhash}_hd720/index.m3u8',
                          'format_id': 'mp4_h264_aac_hd', 'height': 720, 'width': 1280},
-                        {'url': f'https://{subdomain}.pomf.tv/hls-live/{channel_id}_mq/index.m3u8',
+                        {'url': f'https://{subdomain}.pomf.tv/hls-live/{vhash}_mq/index.m3u8',
                          'format_id': 'mp4_h264_aac_mq', 'height': 404, 'width': 720},
-                        {'url': f'https://{subdomain}.pomf.tv/hls-live/{channel_id}_lq/index.m3u8',
+                        {'url': f'https://{subdomain}.pomf.tv/hls-live/{vhash}_lq/index.m3u8',
                          'format_id': 'mp4_h264_aac_lq', 'height': 270, 'width': 480}]}
