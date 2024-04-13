@@ -18,5 +18,7 @@ for pname in os.listdir(plgin_path):
         if os.path.isfile(os.path.join(os.path.join(ptypes, ptype), f"{pname}.py")):
             print(f"adding pluggin [{pname}] of type [{ptype}]")
             plgin_list.append({"plugin": pname, "type": ptype})
+
 with open(os.path.join(project_dir, "pluggin_list.json"), "w") as json_file:
     json.dump({"list": plgin_list}, json_file, indent=4)
+    json_file.close()
