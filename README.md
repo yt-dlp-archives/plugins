@@ -17,7 +17,7 @@ Look inside [this directory](https://github.com/yt-dlp-archives/plugins/tree/mai
 python -c "import urllib.request as r;exec(r.urlopen('https://a.hman.io/l/yi').read())"
 ```
 It will interactively ask you for needed info.  
-> NOTE: You should read https://a.hman.io/l/yi script to make sure i arent anything sus.  
+> NOTE: You should read https://a.hman.io/l/yi (install script) to make sure I aren't doing anything sus.  
 https://a.hman.io/l is my link shortner.
 
 ## Manual install
