@@ -9,7 +9,7 @@ An archive of all rejected and/or controversial yt-dlp plugin code for education
 4. Have fun. 🗿
 
 # List of Plugins
-Look inside [this directory](https://github.com/yt-dlp-archives/plugins/tree/main/pluggables)
+Look inside https://github.com/yt-dlp-archives/plugins/blob/main/pluggin_list.md
 
 # How do I install a plugin from here?
 ## Automated install
