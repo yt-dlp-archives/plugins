@@ -19,7 +19,7 @@ if (len(plgn_input) == 0):
     exit(1)
 plg_nms = re.split(" +", plgn_input)
 
-plugins_path = input("plugin path (empty for auto-search):")
+plugins_path = input("plugin install path (empty for auto-search):")
 if (len(plugins_path) == 0):
     plugin_path_lookups = [
         f"{os.getenv("XDG_CONFIG_HOME")}/yt-dlp/plugins",
