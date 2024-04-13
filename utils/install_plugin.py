@@ -12,8 +12,12 @@ import re
 BASE_PATH = "https://raw.githubusercontent.com/yt-dlp-archives/plugins/main"
 
 print("YTDLP ARCHIEVES PLUGINS SEARCH+INSTALLATION TOOL")
-plg_nms = re.split(" +", input("\nplugins to install (saparate by spaces): "))
-plugin_list_json = json.loads(urllib.request.urlopen(f"{BASE_PATH}/pluggin_list.json").read())
+
+plgn_input = input("\nplugins to install (saparate by spaces): ")
+if (len(plgn_input) == 0):
+    print("\nSILLY: no plugins specified to install")
+    exit(1)
+plg_nms = re.split(" +", plgn_input)
 
 plugins_path = input("plugin path (empty for auto-search):")
 if (len(plugins_path) == 0):
@@ -43,6 +47,8 @@ if (len(plugins_path) == 0):
         print(f"\nautomatically selected installation path [{plugins_path}]")
 
 print()
+plugin_list_json = json.loads(urllib.request.urlopen(f"{BASE_PATH}/pluggin_list.json").read())
+
 for plg_nm in plg_nms:
     installed = 0
     for plgin in plugin_list_json["list"]:
