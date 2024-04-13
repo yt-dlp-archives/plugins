@@ -52,6 +52,7 @@ cd yt-dl_archive_plugins
     ```bash
     python utils/create_new_extractor.py
     ```
+    > NOTE: You might need to type "python.exe" instead of just "python" on windows.  
     2. If your plugin has a postprocessor:
     ```bash
     python utils/create_new_postprocessor.py
@@ -62,6 +63,7 @@ cd yt-dl_archive_plugins
     ```bash
     python utils/update_plugin_list.py
     ```
+    > NOTE: You might need to type "python.exe" instead of just "python" on windows.  
 5. Make a pull request to this repository.
 
 
