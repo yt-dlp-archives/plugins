@@ -43,6 +43,9 @@ if (len(plugins_path) == 0):
         if not plugins_path.endswith("plugins"):
             print("FATAL: plugins path must end with \"plugins\"")
             exit(1)
+        if not os.path.isdir(plugins_path):
+            print(f"FATAL: {plugins_path} is not a valid directory")
+            exit(1)
     else:
         print(f"\nautomatically selected installation path [{plugins_path}]")
 
