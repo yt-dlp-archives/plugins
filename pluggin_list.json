@@ -53,6 +53,10 @@
             "type": "extractor"
         },
         {
+            "plugin": "sexdotcom_shorts",
+            "type": "extractor"
+        },
+        {
             "plugin": "coverapi",
             "type": "extractor"
         },

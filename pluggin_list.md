@@ -12,5 +12,6 @@
 - **hanime** (*extractor*)
 - **pomftv** (*extractor*)
 - **muchohentai** (*extractor*)
+- **sexdotcom_shorts** (*extractor*)
 - **coverapi** (*extractor*)
 - **camhub** (*extractor*)
