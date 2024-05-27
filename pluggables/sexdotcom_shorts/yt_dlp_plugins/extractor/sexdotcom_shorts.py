@@ -28,7 +28,7 @@ class SexDotComShortsIE(InfoExtractor):
             'comment_count': 6,
             'webpage_url': 'https://www.sex.com/en/shorts/nightivy/video/do-curls-look-good-on-me',
             'media_type': 'shorts',
-            'tags': None,
+            'tags': ['teen', 'sexybody', 'natural', 'curls', 'onlyfans', 'gfe', 'girl-next-door', 'ass', 'booty', 'naked'],
             'availability':'public',
             'formats': [
                 {
