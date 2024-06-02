@@ -2,10 +2,6 @@ from yt_dlp.extractor.common import InfoExtractor
 from yt_dlp.utils import traverse_obj, url_or_none, int_or_none, unified_timestamp, float_or_none
 import urllib;
 
-_HANIME_BASE_URL: str = 'https://hanime.tv'
-_CDN_BASE_URL: str = 'https://m3u8s.highwinds-cdn.com/api/v9/m3u8s'
-
-
 class SexDotComShortsIE(InfoExtractor):
     _VALID_URL = r'https?://(?:www\.)?sex\.com/(?:\w+/)?shorts/(?P<id>[\w-]+/video/[\w-]+)'
     _TESTS = [{
