@@ -67,6 +67,10 @@ cd yt-dl_archive_plugins
 5. Make a pull request to this repository.
 
 
+# Some sites are disabled by default by yt-dlp
+Install the plugin named `ununsupported` to remove the restrictions.  
+Follow: [How do I install a plugin](#how-do-i-install-a-plugin-from-here)
+
 # Project Structure
 ```html
 -- <this repo>
