@@ -2,7 +2,7 @@ from yt_dlp.extractor.common import InfoExtractor
 from yt_dlp.utils import traverse_obj, url_or_none, int_or_none, unified_timestamp, float_or_none
 import urllib;
 
-class SexDotComShortsIE(InfoExtractor):
+class SexShortsIE(InfoExtractor):
     _VALID_URL = r'https?://(?:www\.)?sex\.com/(?:\w+/)?shorts/(?P<id>[\w-]+/video/[\w-]+)'
     _TESTS = [{
         'url': 'https://www.sex.com/en/shorts/nightivy/video/do-curls-look-good-on-me',
