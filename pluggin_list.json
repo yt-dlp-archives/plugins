@@ -13,6 +13,14 @@
             "type": "extractor"
         },
         {
+            "plugin": "einthusan",
+            "type": "extractor"
+        },
+        {
+            "plugin": "yourporn",
+            "type": "extractor"
+        },
+        {
             "plugin": "pstream",
             "type": "extractor"
         },
@@ -25,7 +33,19 @@
             "type": "extractor"
         },
         {
+            "plugin": "porn91",
+            "type": "extractor"
+        },
+        {
             "plugin": "sex",
+            "type": "extractor"
+        },
+        {
+            "plugin": "cableav",
+            "type": "extractor"
+        },
+        {
+            "plugin": "jable",
             "type": "extractor"
         },
         {
@@ -34,6 +54,10 @@
         },
         {
             "plugin": "voe",
+            "type": "extractor"
+        },
+        {
+            "plugin": "xfileshare",
             "type": "extractor"
         },
         {
@@ -66,6 +90,10 @@
         },
         {
             "plugin": "camhub",
+            "type": "extractor"
+        },
+        {
+            "plugin": "yourupload",
             "type": "extractor"
         }
     ]
