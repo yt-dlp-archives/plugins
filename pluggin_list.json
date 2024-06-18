@@ -25,6 +25,10 @@
             "type": "extractor"
         },
         {
+            "plugin": "sex",
+            "type": "extractor"
+        },
+        {
             "plugin": "bunkr",
             "type": "extractor"
         },
@@ -53,11 +57,11 @@
             "type": "extractor"
         },
         {
-            "plugin": "sexdotcom_shorts",
+            "plugin": "coverapi",
             "type": "extractor"
         },
         {
-            "plugin": "coverapi",
+            "plugin": "ununsupported",
             "type": "extractor"
         },
         {
