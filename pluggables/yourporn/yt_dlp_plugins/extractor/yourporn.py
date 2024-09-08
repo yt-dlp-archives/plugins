@@ -1,12 +1,11 @@
-from .common import InfoExtractor
-from ..compat import compat_str
-from ..utils import (
+from yt_dlp.extractor.unsupported import KnownPiracyIE
+from yt_dlp.compat import compat_str
+from yt_dlp.utils import (
     parse_duration,
     urljoin,
 )
 
-
-class YourPornIE(InfoExtractor):
+class YourPornIE(KnownPiracyIE, plugin_name='uncensored'):
     _VALID_URL = r'https?://(?:www\.)?sxyprn\.com/post/(?P<id>[^/?#&.]+)'
     _TESTS = [{
         'url': 'https://sxyprn.com/post/57ffcb2e1179b.html',
