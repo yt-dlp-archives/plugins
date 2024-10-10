@@ -1,167 +1,83 @@
-import json
+import re
 
 from yt_dlp.utils import get_element_by_id, traverse_obj
+from yt_dlp.utils._utils import _UnsafeExtensionError
 from yt_dlp.extractor.common import InfoExtractor
 
 
-class BunkrIE(InfoExtractor):
+class BunkrVideoIE(InfoExtractor):
     _TYPE = 'url'
-    _VALID_URL = r'^https://(stream\.bunkr\.is/v|cdn\d?\.bunkr\.is)/(?P<id>\S+)$'
-    _TESTS = [
-        {
-            'url': 'https://stream.bunkr.is/v/bigbuckbunny-b4VHMTTI.mp4',
-            'md5': 'c0c859bcf2a1ebfcab2f968679738721',
-            'info_dict': {
-                'id': 'bigbuckbunny-b4VHMTTI',
-                'title': 'bigbuckbunny-b4VHMTTI',
-                'ext': 'mp4',
-            },
-        },
-        {
-            'url': 'https://cdn4.bunkr.is/bigbuckbunny-b4VHMTTI.mp4',
-            'md5': 'c0c859bcf2a1ebfcab2f968679738721',
-            'info_dict': {
-                'id': 'bigbuckbunny-b4VHMTTI',
-                'title': 'bigbuckbunny-b4VHMTTI',
-                'ext': 'mp4',
-            },
-        },
-    ]
+    _VALID_URL = r'^https://bunkr+\.\w+/v/(?P<id>\S+)$'
 
     def _real_extract(self, url):
-        video_id = self._match_id(url)
-        webpage = self._download_webpage(url, video_id)
+        file_id = self._match_id(url)
+        webpage = self._download_webpage(url, file_id)
 
-        data = traverse_obj(json.loads(get_element_by_id('__NEXT_DATA__', webpage)), ('props', 'pageProps', 'file'))
-        # Example data:
-        # {
-        #     "name": "bigbuckbunny-b4VHMTTI.mp4",
-        #     "size": "4233370",
-        #     "mediafiles": "https://media-files4.bunkr.is"
-        # }
-
-        id = '.'.join(data.get('name').split('.')[:-1])
+        video = self._html_search_regex('<source src="([^"]*)" type="video/mp4" />', webpage, 'video')
+        name = self._html_search_regex('data-v="([^"]*)"', webpage, 'name')
 
         return {
-            'id': id,
-            'title': id,
+            'id': file_id,
+            'title': name,
             'formats': [{
-                'url': data.get('mediafiles') + '/' + data.get('name'),
-                'filesize': int(data.get('size')),
+                'url': video,
+            }],
+        }
+
+class BunkrImageIE(InfoExtractor):
+    _TYPE = 'url'
+    _VALID_URL = r'^https://bunkr+\.\w+/i/(?P<id>\S+)$'
+
+    def _real_extract(self, url):
+        file_id = self._match_id(url)
+        webpage = self._download_webpage(url, file_id)
+
+        image = self._html_search_regex('<img src="([^"]*)"', webpage, 'image')
+        name = self._html_search_regex('data-v="([^"]*)"', webpage, 'name')
+
+        return {
+            'id': file_id,
+            'title': name,
+            'formats': [{
+                'url': image,
+            }],
+        }
+
+class BunkrArchiveIE(InfoExtractor):
+    _TYPE = 'url'
+    _VALID_URL = r'^https://bunkr+\.\w+/d/(?P<id>\S+)$'
+
+    def _real_extract(self, url):
+        # Add archive formats to allowed downloads
+        _UnsafeExtensionError.ALLOWED_EXTENSIONS = frozenset([*_UnsafeExtensionError.ALLOWED_EXTENSIONS, 'zip', 'rar'])
+
+        file_id = self._match_id(url)
+        webpage = self._download_webpage(url, file_id)
+
+        name = self._html_search_regex('data-v="([^"]*)"', webpage, 'name')
+        url_id = self._html_search_regex('data-file-id="([^"]*)"', webpage, 'url_id')
+        download_url = self._html_search_regex(f'href="([^"]*/{url_id})"', webpage, 'download_url')
+
+        download_webpage = self._download_webpage(download_url, url_id)
+        download = self._html_search_regex(f'href="([^"]*/{name})"', download_webpage, 'download')
+
+        return {
+            'id': file_id,
+            'title': name,
+            'formats': [{
+                'url': download,
+                'ext': 'zip',
             }],
         }
 
 
 class BunkrAlbumIE(InfoExtractor):
     _TYPE = 'url'
-    _VALID_URL = r'^https://bunkr\.is/a/(?P<id>\S+)$'
-    _TESTS = [
-        {
-            'url': 'https://bunkr.is/a/hNJhvMle',
-            'info_dict': {
-                'id': 'hNJhvMle',
-                'title': 'big buck playlist',
-            },
-            'playlist': [
-                {
-                    'info_dict': {
-                        'id': 'bigbuck_004-dUyla0ux',
-                        'title': 'bigbuck_004-dUyla0ux',
-                        'ext': 'mp4',
-                        'timestamp': 1661345586,
-                        'upload_date': '20220824',
-                    },
-                },
-                {
-                    'info_dict': {
-                        'id': 'bigbuck_003-lqaPgktY',
-                        'title': 'bigbuck_003-lqaPgktY',
-                        'ext': 'mp4',
-                        'timestamp': 1661345636,
-                        'upload_date': '20220824',
-                    },
-                },
-                {
-                    'info_dict': {
-                        'id': 'bigbuck_001-mazOX2V2',
-                        'title': 'bigbuck_001-mazOX2V2',
-                        'ext': 'mp4',
-                        'timestamp': 1661345685,
-                        'upload_date': '20220824',
-                    },
-                },
-                {
-                    'info_dict': {
-                        'id': 'bigbuck_002-eVZJ4jY9',
-                        'title': 'bigbuck_002-eVZJ4jY9',
-                        'ext': 'mp4',
-                        'timestamp': 1661345774,
-                        'upload_date': '20220824',
-                    },
-                },
-            ],
-        },
-    ]
-
-    def _extract_entries(self, data):
-        for f in data.get('files'):
-            id = '.'.join(f.get('name').split('.')[:-1])
-
-            yield {
-                'id': id,
-                'title': id,
-                'formats': [{
-                    'url': f.get('cdn').replace('cdn', 'media-files') + '/' + f.get('name'),
-                    'filesize': int(f.get('size')),
-                    'timestamp': f.get('timestamp'),
-                }],
-            }
+    _VALID_URL = r'^https://bunkr+\.\w+/a/(?P<id>\S+)$'
 
     def _real_extract(self, url):
-        video_id = self._match_id(url)
-        webpage = self._download_webpage(url, video_id)
+        album_id = self._match_id(url)
+        webpage = self._download_webpage(url, album_id)
 
-        data = traverse_obj(json.loads(get_element_by_id('__NEXT_DATA__', webpage)), ('props', 'pageProps', 'album'))
-        # Example data:
-        # {
-        #     "id": 55378,
-        #     "name": "big buck playlist",
-        #     "identifier": "hNJhvMle",
-        #     "enabled": 1,
-        #     "public": 1,
-        #     "description": "",
-        #     "notFound": false,
-        #     "files": [
-        #         {
-        #             "name": "bigbuck_004-dUyla0ux.mp4",
-        #             "size": "9462607",
-        #             "timestamp": 1661345586,
-        #             "cdn": "https://cdn4.bunkr.is",
-        #             "i": "https://i4.bunkr.is"
-        #         },
-        #         {
-        #             "name": "bigbuck_003-lqaPgktY.mp4",
-        #             "size": "9800947",
-        #             "timestamp": 1661345636,
-        #             "cdn": "https://cdn4.bunkr.is",
-        #             "i": "https://i4.bunkr.is"
-        #         },
-        #         {
-        #             "name": "bigbuck_001-mazOX2V2.mp4",
-        #             "size": "2917670",
-        #             "timestamp": 1661345685,
-        #             "cdn": "https://cdn4.bunkr.is",
-        #             "i": "https://i4.bunkr.is"
-        #         },
-        #         {
-        #             "name": "bigbuck_002-eVZJ4jY9.mp4",
-        #             "size": "10508190",
-        #             "timestamp": 1661345774,
-        #             "cdn": "https://cdn4.bunkr.is",
-        #             "i": "https://i4.bunkr.is"
-        #         }
-        #     ]
-        # }
-
-        playlist_id = data.get('identifier')
-        return self.playlist_result(self._extract_entries(data), playlist_id, data.get('name') or playlist_id)
+        links = re.findall(r'href="(https://bunkr+\.\w+/(?:v|i|d)/\S+)"', webpage)
+        return self.playlist_result((self.url_result(link) for link in links), album_id, album_id)
