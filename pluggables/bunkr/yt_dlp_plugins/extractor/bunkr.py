@@ -41,7 +41,7 @@ class BunkrImageIE(InfoExtractor):
 
         return {
             'id': file_id,
-            'title': os.path.splitext(name),
+            'title': os.path.splitext(name)[0],
             'formats': [{
                 'url': image,
                 'ext': ext,
@@ -68,7 +68,7 @@ class BunkrArchiveIE(InfoExtractor):
 
         return {
             'id': file_id,
-            'title': os.path.splitext(name),
+            'title': os.path.splitext(name)[0],
             'formats': [{
                 'url': download,
             }],
