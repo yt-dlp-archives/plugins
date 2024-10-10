@@ -1,3 +1,5 @@
+# https://github.com/yt-dlp/yt-dlp/blob/master/CONTRIBUTING.md#developer-instructions
+# https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/extractor/common.py
 import re
 
 from yt_dlp.utils import get_element_by_id, traverse_obj
@@ -10,11 +12,12 @@ class BunkrVideoIE(InfoExtractor):
     _VALID_URL = r'^https://bunkr+\.\w+/v/(?P<id>\S+)$'
 
     def _real_extract(self, url):
-        file_id = self._match_id(url)
-        webpage = self._download_webpage(url, file_id)
+        url_id = self._match_id(url)
+        webpage = self._download_webpage(url, url_id)
 
-        video = self._html_search_regex('<source src="([^"]*)" type="video/mp4" />', webpage, 'video')
         name = self._html_search_regex('data-v="([^"]*)"', webpage, 'name')
+        file_id = self._html_search_regex('data-file-id="([^"]*)"', webpage, 'file_id')
+        video = self._html_search_regex('<source src="([^"]*)" type="video/mp4" />', webpage, 'video')
 
         return {
             'id': file_id,
@@ -29,11 +32,12 @@ class BunkrImageIE(InfoExtractor):
     _VALID_URL = r'^https://bunkr+\.\w+/i/(?P<id>\S+)$'
 
     def _real_extract(self, url):
-        file_id = self._match_id(url)
-        webpage = self._download_webpage(url, file_id)
+        url_id = self._match_id(url)
+        webpage = self._download_webpage(url, url_id)
 
-        image = self._html_search_regex('<img src="([^"]*)"', webpage, 'image')
         name = self._html_search_regex('data-v="([^"]*)"', webpage, 'name')
+        file_id = self._html_search_regex('data-file-id="([^"]*)"', webpage, 'file_id')
+        image = self._html_search_regex('<img src="([^"]*)"', webpage, 'image')
 
         return {
             'id': file_id,
@@ -51,14 +55,14 @@ class BunkrArchiveIE(InfoExtractor):
         # Add archive formats to allowed downloads
         _UnsafeExtensionError.ALLOWED_EXTENSIONS = frozenset([*_UnsafeExtensionError.ALLOWED_EXTENSIONS, 'zip', 'rar'])
 
-        file_id = self._match_id(url)
-        webpage = self._download_webpage(url, file_id)
+        url_id = self._match_id(url)
+        webpage = self._download_webpage(url, url_id)
 
         name = self._html_search_regex('data-v="([^"]*)"', webpage, 'name')
-        url_id = self._html_search_regex('data-file-id="([^"]*)"', webpage, 'url_id')
-        download_url = self._html_search_regex(f'href="([^"]*/{url_id})"', webpage, 'download_url')
+        file_id = self._html_search_regex('data-file-id="([^"]*)"', webpage, 'file_id')
+        download_url = self._html_search_regex(f'href="([^"]*/{file_id})"', webpage, 'download_url')
 
-        download_webpage = self._download_webpage(download_url, url_id)
+        download_webpage = self._download_webpage(download_url, file_id)
         download = self._html_search_regex(f'href="([^"]*/{name})"', download_webpage, 'download')
 
         return {
@@ -66,7 +70,6 @@ class BunkrArchiveIE(InfoExtractor):
             'title': name,
             'formats': [{
                 'url': download,
-                'ext': 'zip',
             }],
         }
 
