@@ -1,6 +1,6 @@
 # https://github.com/yt-dlp/yt-dlp/blob/master/CONTRIBUTING.md#developer-instructions
 # https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/extractor/common.py
-import re
+import re, os
 
 from yt_dlp.utils import get_element_by_id, traverse_obj
 from yt_dlp.utils._utils import _UnsafeExtensionError
@@ -21,7 +21,7 @@ class BunkrVideoIE(InfoExtractor):
 
         return {
             'id': file_id,
-            'title': name,
+            'title': os.path.splitext(name)[0],
             'formats': [{
                 'url': video,
             }],
@@ -41,9 +41,10 @@ class BunkrImageIE(InfoExtractor):
 
         return {
             'id': file_id,
-            'title': name,
+            'title': os.path.splitext(name),
             'formats': [{
                 'url': image,
+                'ext': ext,
             }],
         }
 
@@ -67,7 +68,7 @@ class BunkrArchiveIE(InfoExtractor):
 
         return {
             'id': file_id,
-            'title': name,
+            'title': os.path.splitext(name),
             'formats': [{
                 'url': download,
             }],
