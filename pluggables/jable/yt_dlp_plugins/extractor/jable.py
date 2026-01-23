@@ -1,7 +1,7 @@
 import re
 
-from .common import InfoExtractor
-from ..utils import (
+from yt_dlp.extractor.common import InfoExtractor
+from yt_dlp.utils import (
     InAdvancePagedList,
     int_or_none,
     orderedSet,
