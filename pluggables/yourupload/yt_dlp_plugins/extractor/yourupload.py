@@ -1,5 +1,5 @@
-from .common import InfoExtractor
-from ..utils import urljoin
+from yt_dlp.extractor.common import InfoExtractor
+from yt_dlp.utils import urljoin
 
 
 class YourUploadIE(InfoExtractor):
