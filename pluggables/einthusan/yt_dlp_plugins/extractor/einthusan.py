@@ -1,7 +1,7 @@
 import json
 
-from .common import InfoExtractor
-from ..compat import (
+from yt_dlp.extractor.common import InfoExtractor
+from yt_dlp.compat import (
     compat_b64decode,
     compat_str,
     compat_urlparse,
